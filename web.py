@@ -4,3 +4,5 @@ def web():
     r = requests.get(url)
     with open("data.txt","wb") as f:  
         f.write(r.content)
+
+    
