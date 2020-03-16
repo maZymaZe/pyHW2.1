@@ -1,6 +1,8 @@
-#from InputData import input_data
-#from calculation import cal
-#from newgui import newgui
+'''
+from InputData import input_data
+from calculation import cal
+from newgui import newgui
+'''
 from web import web
 from manual_get import manual_get
 import tkinter as tk
@@ -22,7 +24,6 @@ import newgui
 import requests
 
 '''
-
 '''
 if __name__ == '__main__':
 
@@ -41,7 +42,6 @@ if __name__ == '__main__':
 #data=input_data()
 #maxNum,maxDay,minNum,minDay,ave,mid=cal(data)
 #gui(maxNum,maxDay,minNum,minDay,ave,mid,data)
-
 unknown error
 '''
 root = tk.Tk()

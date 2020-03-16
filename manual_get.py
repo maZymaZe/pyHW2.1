@@ -1,6 +1,4 @@
 from show_data import show_data
-
-
 def manual_get():
     f = open("data.txt", "w")
     s = []
@@ -12,7 +10,6 @@ def manual_get():
             # print(t)
             t = input()
         s.append(str(i)+" "+t+"\n")
-
     f.writelines(s)
     f.close()
     show_data()
