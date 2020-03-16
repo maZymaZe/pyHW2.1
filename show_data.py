@@ -1,68 +1,35 @@
-# -*- coding: utf-8 -*-
+import sys
+from InputData import input_data
+from chart import chart
+from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5 import QtCore
+import show_data_gui
+from calculation import cal
+from PyQt5.QtCore import QDate
+def show_data():
+    def showDate(date):
+        tt=date.day()
+        #s=self.cal.selectedDate().toString("yyyy-MM-dd dddd")
+        ui.label_7.setText("the number of Feb %d is %d"%(tt,data[tt]))
 
-# Form implementation generated from reading ui file '.\show_data.ui'
-#
-# Created by: PyQt5 UI code generator 5.13.2
-#
-# WARNING! All changes made in this file will be lost!
+    data = input_data()
+    maxNum, maxDay, minNum, minDay, ave, mid = cal(data)
 
+    QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)
 
-from PyQt5 import QtCore, QtGui, QtWidgets
-
-
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(403, 276)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
-        self.centralwidget.setObjectName("centralwidget")
-        self.calendarWidget = QtWidgets.QCalendarWidget(self.centralwidget)
-        self.calendarWidget.setGeometry(QtCore.QRect(6, 6, 200, 137))
-        self.calendarWidget.setObjectName("calendarWidget")
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(220, 10, 141, 31))
-        self.label.setObjectName("label")
-        self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(220, 40, 161, 41))
-        self.label_2.setObjectName("label_2")
-        self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(220, 80, 171, 31))
-        self.label_3.setObjectName("label_3")
-        self.label_4 = QtWidgets.QLabel(self.centralwidget)
-        self.label_4.setGeometry(QtCore.QRect(220, 120, 181, 31))
-        self.label_4.setObjectName("label_4")
-        self.label_5 = QtWidgets.QLabel(self.centralwidget)
-        self.label_5.setGeometry(QtCore.QRect(220, 160, 161, 31))
-        self.label_5.setObjectName("label_5")
-        self.label_6 = QtWidgets.QLabel(self.centralwidget)
-        self.label_6.setGeometry(QtCore.QRect(220, 200, 161, 31))
-        self.label_6.setObjectName("label_6")
-        self.label_7 = QtWidgets.QLabel(self.centralwidget)
-        self.label_7.setGeometry(QtCore.QRect(20, 150, 131, 21))
-        self.label_7.setObjectName("label_7")
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(20, 180, 171, 51))
-        self.pushButton.setObjectName("pushButton")
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 403, 18))
-        self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
-
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
-    def retranslateUi(self, MainWindow):
-        _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "show the data"))
-        self.label.setText(_translate("MainWindow", "label"))
-        self.label_2.setText(_translate("MainWindow", "label_2"))
-        self.label_3.setText(_translate("MainWindow", "label_3"))
-        self.label_4.setText(_translate("MainWindow", "label_4"))
-        self.label_5.setText(_translate("MainWindow", "label_5"))
-        self.label_6.setText(_translate("MainWindow", "label_6"))
-        self.label_7.setText(_translate("MainWindow", "label_7"))
-        self.pushButton.setText(_translate("MainWindow", "show the chart"))
+    app = QApplication(sys.argv)
+    MainWindow = QMainWindow()
+    ui = show_data_gui.Ui_MainWindow()
+    ui.setupUi(MainWindow)
+  # MainWindow.resize(760,440)
+    MainWindow.show()
+    ui.label.setText("minNum:"+str(minNum))
+    ui.label_2.setText("minDay:"+str(minDay))
+    ui.label_3.setText("maxNum:"+str(maxNum))
+    ui.label_4.setText("maxDay:"+str(maxDay))
+    ui.label_5.setText("average:"+str(ave))
+    ui.label_6.setText("median:"+str(mid))
+    ui.label_7.setText("")
+    ui.pushButton.clicked.connect(chart)
+    ui.calendarWidget.clicked.connect(showDate)
+    sys.exit(app.exec_())
