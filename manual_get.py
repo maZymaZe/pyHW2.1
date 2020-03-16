@@ -6,7 +6,7 @@ def manual_get():
         print("please input tne number of new patients on Feb %d" % i)
         t = input()
         while (not(t.isdigit() and float(t) % 1 < 0.0001 and float(t)+0.5 > 0)):
-            print("please input positive integer ONLY")
+            print("please input natural number ONLY")
             # print(t)
             t = input()
         s.append(str(i)+" "+t+"\n")
