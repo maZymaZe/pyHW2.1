@@ -45,6 +45,7 @@ if __name__ == '__main__':
 unknown error
 '''
 root = tk.Tk()
+root.title("get data")
 root.geometry('300x350')
 l1 = tk.Label(root, text="    Hello! In this programme\
 , you\ncan learn something about\nnew patients of 2019-nCoV in\

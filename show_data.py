@@ -6,11 +6,13 @@ from PyQt5 import QtCore
 import show_data_gui
 from calculation import cal
 from PyQt5.QtCore import QDate
+
+
 def show_data():
     def showDate(date):
-        tt=date.day()
+        tt = date.day()
         #s=self.cal.selectedDate().toString("yyyy-MM-dd dddd")
-        ui.label_7.setText("the number of Feb %d is %d"%(tt,data[tt]))
+        ui.label_7.setText("the number of Feb %d is %d" % (tt, data[tt]))
 
     data = input_data()
     maxNum, maxDay, minNum, minDay, ave, mid = cal(data)
