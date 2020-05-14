@@ -6,12 +6,11 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QDate
 
 
-class Ui_MainWindow(object):
+class Ui_MainWindow(object):                                                      #pyqt5 gui
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(403, 276)
@@ -20,7 +19,7 @@ class Ui_MainWindow(object):
         self.calendarWidget = QtWidgets.QCalendarWidget(self.centralwidget)
         self.calendarWidget.setGeometry(QtCore.QRect(6, 6, 200, 137))
         self.calendarWidget.setDateRange(QDate(2020, 2, 1), QDate(2020, 2, 29))
-#        self.setDateRange(QDate(int, int, int),QDate(int, int, int))
+        #        self.setDateRange(QDate(int, int, int),QDate(int, int, int))     # 日历设置
         self.calendarWidget.setObjectName("calendarWidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(220, 10, 141, 31))
@@ -42,10 +41,10 @@ class Ui_MainWindow(object):
         self.label_6.setObjectName("label_6")
         self.label_7 = QtWidgets.QLabel(self.centralwidget)
         self.label_7.setGeometry(QtCore.QRect(20, 150, 131, 21))
-        self.label_7.setObjectName("label_7")
+        self.label_7.setObjectName("label_7")                                         #各类标签展示数据
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(20, 180, 171, 51))
-        self.pushButton.setObjectName("pushButton")
+        self.pushButton.setObjectName("pushButton")                                   #按钮
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 403, 18))
